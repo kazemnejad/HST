@@ -1,0 +1,3 @@
+* name lookup timed out
+* Couldn't resolve host 'gorgor.ir'
+* Closing connection #0

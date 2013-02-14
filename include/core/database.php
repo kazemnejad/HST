@@ -1,0 +1,50 @@
+<?php
+require_once '../config.php';
+require_once 'no_buffer.php';
+
+error_reporting(E_ALL);
+ini_set("display_errors", "On");
+class db_engine{
+	//variable
+	private $host;
+	private $db_name;
+	private $user;
+	private $pass;
+	//Function
+	public function __construct(){
+		global $_config;
+		$this->host = $_config['db']['host'];
+		$this->db_name = $_config['db']['name'];
+		$this->user = $_config['db']['user'];
+		$this->pass = $_config['db']['pass'];
+		
+		#connect & select database
+		$this->connect();
+		mysql_select_db($this->db_name);
+	}
+	private function connect(){
+		mysql_connect($this->host,$this->user,$this->pass) or die("Unable to connect database");
+	}
+	public function setDBname($dbn){
+		$this->db_name = $dbn;
+	}
+	public function query($query){
+		mysql_escape_string($query);
+		$result = mysql_query($query);
+		if ( $result === false){
+			die ($query." : ". mysql_error());
+		}
+		if (getConfig('main', 'writeQueries') == 1) echo_nobuffer('QUERY:--> ' . $query . '<br>');
+		return $result;
+	}
+
+	public function getLastId($tableName){
+		$this->connect();
+		$result = $this->query("SELECT * FROM $tableName ORDER BY id DESC LIMIT 1");
+		$id = 0;
+		if(mysql_num_rows($result) > 0)
+		$id = mysql_result($result, 0, 0);
+		return ++$id;
+	}
+}
+?>
