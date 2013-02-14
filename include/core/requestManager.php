@@ -96,7 +96,7 @@ class RequestManager{
 		curl_setopt_array ( $ch, $curlOpts );
 	}
 
-	private  function sendRequest($data, $formMethod, $formAction){
+	public function sendRequest($data, $formMethod, $formAction){
 		#use flobal headers variable
 		global $headers;
 
@@ -138,5 +138,5 @@ class RequestManager{
 
 };
 
-$rq = new RequestManager();
-$rq->run();
+/*$rq = new RequestManager();
+$rq->run();*/
