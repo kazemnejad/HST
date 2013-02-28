@@ -1,0 +1,26 @@
+* About to connect() to www.joomla.org port 80 (#0)
+*   Trying 72.249.159.57... * connected
+> GET //tmp/? HTTP/1.1
+Host: www.joomla.org
+Cookie: 24f3f182e0dec021f759518915d446a8=ce2a1182b3202ae793218b9da222e8f5; 912b085b9213021200bd7086c0dbccc9=ed0df4d05613e3c1b53274cd2a636108
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv=>15.0) Gecko/20100101 Firefox/15.0.1
+Accept: */*
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: close
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Referer: http://localhost/
+Pragma: no-cache
+Cache-Control: no-cache
+
+< HTTP/1.1 200 OK
+< Date: Thu, 21 Feb 2013 13:31:27 GMT
+< Server: Apache
+< Last-Modified: Sun, 03 Feb 2013 23:23:50 GMT
+< ETag: "5e30ee-1f-4d4da44daed80"
+< Accept-Ranges: bytes
+< Content-Length: 31
+< Content-Type: text/html
+< 
+* Connection #0 to host www.joomla.org left intact
+* Closing connection #0
